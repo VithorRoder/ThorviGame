@@ -479,7 +479,7 @@ Transform:
   m_GameObject: {fileID: 466244624}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 2049, y: 577, z: -792}
+  m_LocalPosition: {x: 2046, y: 577, z: -792}
   m_LocalScale: {x: 1331.3575, y: 322.4806, z: 323.29614}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -522,7 +522,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.07450982, g: 0.46666667, b: 0.047058824, a: 0.98039216}
+  m_BackGroundColor: {r: 0.23092937, g: 0.16037282, b: 0.16037282, a: 0.49803922}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -880,12 +880,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefabs:
-  - {fileID: 2274698671167455008, guid: 0d7c2e454965d8548920a4444b8e3ac4, type: 3}
-  - {fileID: 2274698671167455008, guid: d158fcf5509a3704ebd6b4a655867964, type: 3}
-  - {fileID: 2274698671167455008, guid: 98387b7c38896944293ff7fa505641cf, type: 3}
-  - {fileID: 2274698671167455008, guid: 173d49ff57555124890db89846631c19, type: 3}
-  - {fileID: 2274698671167455008, guid: 0eecbb598069bf045aec859f23b005e3, type: 3}
-  - {fileID: 2274698671167455008, guid: 2d3e3e2eb20b87a4384dde113ab989de, type: 3}
+  - {fileID: 236666778807316025, guid: 6c23c2224c65b7f42b38d25eb549bfe9, type: 3}
+  - {fileID: 1898180168873706417, guid: e81cd5142f99ef14f8e3a9088f5b490a, type: 3}
+  - {fileID: 8150592138302806144, guid: c5d476834d1c5e74880d86e3f66fd33a, type: 3}
+  - {fileID: 418020599013124844, guid: a43d955e5e9096244bebad5b3dee7a33, type: 3}
+  - {fileID: 7794905324925628546, guid: f5a6cb66ba66cee42b0200ccc5c57491, type: 3}
+  - {fileID: 5704672810200495028, guid: 05bc0ae65c4a7244d8c6d3f9fc22f1e9, type: 3}
 --- !u!4 &1428117781
 Transform:
   m_ObjectHideFlags: 0
@@ -1296,7 +1296,7 @@ Transform:
   m_GameObject: {fileID: 1903381017}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -169, y: 577, z: -792}
+  m_LocalPosition: {x: -160, y: 577, z: -792}
   m_LocalScale: {x: 1331.5167, y: 331.1727, z: 324.10602}
   m_ConstrainProportionsScale: 0
   m_Children: []
