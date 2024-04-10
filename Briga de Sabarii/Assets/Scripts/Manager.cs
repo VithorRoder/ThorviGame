@@ -18,7 +18,7 @@ public class NewBehaviourScript : MonoBehaviour
     void SpawnPlayer()
     {
         int playerIndex = trocarPersonagens.indiceAtual;
-        Vector3 spawnPosition = new Vector3(96.76266f, 136.7889f, -800f);
+        Vector3 spawnPosition = new Vector3(96.76266f, 136.7889f, 0);
         PhotonNetwork.Instantiate(playerPrefabs[playerIndex].name, spawnPosition, Quaternion.identity);
     }
 }
