@@ -10,6 +10,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
   public GameObject ConectedScreenS;
   public GameObject ConectedScreenF;
+  public GameObject Conectando;
 
   void Awake()
   {
@@ -18,6 +19,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
   public void OnClick_ConnectBt()
   {
+    Conectando.SetActive(true);
     PhotonNetwork.ConnectUsingSettings();
   }
 

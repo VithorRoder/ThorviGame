@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.UIElements;
 
 public class Shooting : MonoBehaviourPunCallbacks
 {
@@ -14,9 +15,11 @@ public class Shooting : MonoBehaviourPunCallbacks
     private float timer;
     public float timeBFire;
     public float force;
+    public PhotonView pv;
 
     void Start()
     {
+        //playerCamera = GameObject.FindGameObjectWithTag("playerCamera").GetComponent<Camera>();
         mainCamera = Camera.main;
     }
 
@@ -25,6 +28,7 @@ public class Shooting : MonoBehaviourPunCallbacks
         if (!photonView.IsMine)
             return;
 
+        //mousePosition = playerCamera.ScreenToWorldPoint(Input.mousePosition);
         mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         Vector3 rotation = mousePosition - transform.position;
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
@@ -49,7 +53,7 @@ public class Shooting : MonoBehaviourPunCallbacks
         if (Input.GetMouseButton(0) && canFire)
         {
             canFire = false;
-            ShootBullet(rotZ);
+            ShootBullet(rotZ, mousePosition);
         }
     }
 
@@ -59,22 +63,20 @@ public class Shooting : MonoBehaviourPunCallbacks
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
     }
 
-    void ShootBullet(float rotZ)
+    [PunRPC]
+    void ShootBullet(float rotZ, Vector3 mousePos)
     {
+        Vector3 direction = mousePos - balaTransform.position;
         GameObject newBullet = Instantiate(balaPrefab, balaTransform.position, Quaternion.Euler(0, 0, rotZ));
-        Rigidbody2D rb = newBullet.GetComponent<Rigidbody2D>();
-        Vector3 direction = mousePosition - balaTransform.position;
-        rb.velocity = direction.normalized * force;
+        newBullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * force;
 
-        photonView.RPC("NetworkShootBullet", RpcTarget.Others, balaTransform.position, Quaternion.Euler(0, 0, rotZ));
+        photonView.RPC("NetworkShootBullet", RpcTarget.Others, newBullet.transform.position, newBullet.GetComponent<Rigidbody2D>().velocity);
     }
 
     [PunRPC]
-    void NetworkShootBullet(Vector3 position, Quaternion rotation)
+    void NetworkShootBullet(Vector3 position, Vector2 velocity)
     {
-        GameObject newBullet = Instantiate(balaPrefab, position, rotation);
-        Rigidbody2D rb = newBullet.GetComponent<Rigidbody2D>();
-        Vector3 direction = mousePosition - position;
-        rb.velocity = direction.normalized * force;
+        GameObject newBullet = Instantiate(balaPrefab, position, Quaternion.identity);
+        newBullet.GetComponent<Rigidbody2D>().velocity = velocity;
     }
 }

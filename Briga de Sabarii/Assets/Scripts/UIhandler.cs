@@ -9,14 +9,37 @@ public class UIhandler : MonoBehaviourPunCallbacks
 {
     public InputField CriarRoomTF;
     public InputField JoinRoomTF;
+    public GameObject AcessandoSala;
+    public GameObject CriandoSala;
+    public GameObject FalhaEncontrarSala;
 
     public void OnClick_JoinRoom()
     {
+        FalhaEncontrarSala.SetActive(false);
+        CriandoSala.SetActive(false);
+        AcessandoSala.SetActive(true);
         PhotonNetwork.JoinRoom(JoinRoomTF.text, null);
+
+        StartCoroutine(WaitForJoin());
+    }
+
+    private IEnumerator WaitForJoin()
+    {
+        yield return new WaitForSeconds(10f);
+
+        if (!PhotonNetwork.InRoom)
+        {
+            AcessandoSala.SetActive(false);
+            CriandoSala.SetActive(false);
+            FalhaEncontrarSala.SetActive(true);
+        }
     }
 
     public void OnClick_CreateRoom()
     {
+        FalhaEncontrarSala.SetActive(false);
+        AcessandoSala.SetActive(false);
+        CriandoSala.SetActive(true);
         PhotonNetwork.CreateRoom(CriarRoomTF.text, new RoomOptions { MaxPlayers = 6 }, null);
     }
 

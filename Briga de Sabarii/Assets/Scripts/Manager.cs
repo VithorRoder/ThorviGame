@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Manager : MonoBehaviour
 {
     public GameObject[] playerPrefabs;
 

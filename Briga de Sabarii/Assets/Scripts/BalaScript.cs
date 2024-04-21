@@ -8,24 +8,15 @@ public class BalaScript : MonoBehaviourPun
     private Vector3 mousePosition;
     private Camera mainCamera;
     private Rigidbody2D rb;
-    public float force;
+    public float damage = 5;
     private float destroyTime = 5f;
     private bool collided = false;
     private Vector3 direction;
+    public PhotonView pv;
 
-    // Start is called before the first frame update
     void Start()
     {
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody2D>();
-        mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 direction = mousePosition - transform.position;
-        Vector3 rotation = transform.position - mousePosition;
-        rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
-        float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rot + 90);
-
-
         StartCoroutine(DestroyAfterDelay());
     }
 
@@ -35,8 +26,15 @@ public class BalaScript : MonoBehaviourPun
 
         if (!collided)
         {
-            //photonView.RPC("DestroyBullet", RpcTarget.AllBuffered);
             this.GetComponent<PhotonView>().RPC("DestroyBullet", RpcTarget.AllBuffered);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (photonView.IsMine)
+        {
+            rb.velocity = transform.up;
         }
     }
 
@@ -52,7 +50,7 @@ public class BalaScript : MonoBehaviourPun
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Ground"))
+        if (other.CompareTag("Ground") || other.CompareTag("Player") || other.CompareTag("Bala"))
         {
             if (!collided)
             {
@@ -64,25 +62,22 @@ public class BalaScript : MonoBehaviourPun
                 }
                 else
                 {
-                    Destroy(gameObject); // Destruir localmente se não for possível RPC
+                    Destroy(gameObject);
+                }
+                if (other.CompareTag("Player"))
+                {
+                    PlayerHealth ph = other.gameObject.GetComponent<PlayerHealth>();
+                    if (ph != null)
+                    {
+                        ph.photonView.RPC("ReduceHealth", RpcTarget.AllBuffered, damage);
+                        ph.photonView.RPC("UpdateHealthUI", RpcTarget.AllBuffered, ph.health, ph.maxHealth);
+                    }
                 }
             }
         }
     }
 
-    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsWriting)
-        {
-            // Enviar a posição e a direção da bala para os outros jogadores
-            stream.SendNext(transform.position);
-            stream.SendNext(direction);
-        }
-        else if (stream.IsReading)
-        {
-            // Receber a posição e a direção da bala dos outros jogadores
-            transform.position = (Vector3)stream.ReceiveNext();
-            direction = (Vector3)stream.ReceiveNext();
-        }
-    }
 }
+
+
+
