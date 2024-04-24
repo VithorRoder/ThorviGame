@@ -57,6 +57,7 @@ MonoBehaviour:
   - TakeDamage
   - ApplyDamage
   - UpdateHealthUI
+  - OnTriggerEnter2D
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviourPun
     public Image healthBola;
     public float health;
     public float maxHealth;
+    public PhotonView pvv;
 
     void Start()
     {

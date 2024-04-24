@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 440273519526208566}
   m_Layer: 0
   m_Name: BonecoMiraVerde
-  m_TagString: Player
+  m_TagString: PlayerVerde
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -380,7 +380,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -433,7 +433,7 @@ MonoBehaviour:
   playerCamera: {fileID: 8819396023813010067}
   nameText: {fileID: 3872011419519425544}
   sr: {fileID: 712380100397466840}
-  rb: {fileID: 0}
+  rb: {fileID: 8380869569616975725}
   smoothTime: 0.07
 --- !u!114 &440273519526208566
 MonoBehaviour:
@@ -450,6 +450,7 @@ MonoBehaviour:
   healthBola: {fileID: 5415307080716483914}
   health: 100
   maxHealth: 0
+  pvv: {fileID: 2544244259882422011}
 --- !u!1 &1637637158696647435
 GameObject:
   m_ObjectHideFlags: 0

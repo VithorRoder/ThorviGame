@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 2580393123029834988}
   m_Layer: 0
   m_Name: BonecoMiraAmarelo
-  m_TagString: Player
+  m_TagString: PlayerAmarelo
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -730,7 +730,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -783,7 +783,7 @@ MonoBehaviour:
   playerCamera: {fileID: 8814032783814122126}
   nameText: {fileID: 5916442451656167635}
   sr: {fileID: 7253809645736304972}
-  rb: {fileID: 0}
+  rb: {fileID: 5115512621710101106}
   smoothTime: 0.07
 --- !u!114 &2580393123029834988
 MonoBehaviour:
@@ -800,6 +800,7 @@ MonoBehaviour:
   healthBola: {fileID: 4274731058221492775}
   health: 100
   maxHealth: 0
+  pvv: {fileID: 260805459919945081}
 --- !u!1 &7446087268419452941
 GameObject:
   m_ObjectHideFlags: 0

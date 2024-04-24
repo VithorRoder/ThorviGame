@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: -5465493383326914890}
   m_Layer: 0
   m_Name: BonecoMiraAzul
-  m_TagString: Player
+  m_TagString: PlayerAzul
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,7 +231,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -284,7 +284,7 @@ MonoBehaviour:
   playerCamera: {fileID: 4139804203375383297}
   nameText: {fileID: 6749154958737741190}
   sr: {fileID: 5225132948703000590}
-  rb: {fileID: 0}
+  rb: {fileID: 4583496448018507657}
   smoothTime: 0.07
 --- !u!114 &-5465493383326914890
 MonoBehaviour:
@@ -301,6 +301,7 @@ MonoBehaviour:
   healthBola: {fileID: 5745632194973842709}
   health: 100
   maxHealth: 0
+  pvv: {fileID: 4742266947893858650}
 --- !u!1 &1565678939894087353
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,8 +562,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5528673217875888232}
-  - component: {fileID: 2878381237412393166}
-  - component: {fileID: 5337580171180704952}
+  - component: {fileID: 8616676345701783185}
+  - component: {fileID: 7712598697525900939}
   m_Layer: 0
   m_Name: RotationTriangle
   m_TagString: Untagged
@@ -586,7 +587,7 @@ Transform:
   - {fileID: 1543556480145625793}
   m_Father: {fileID: 3142991383530261943}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2878381237412393166
+--- !u!114 &8616676345701783185
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -603,8 +604,8 @@ MonoBehaviour:
   canFire: 1
   timeBFire: 0.5
   force: 900
-  pv: {fileID: 5337580171180704952}
---- !u!114 &5337580171180704952
+  pv: {fileID: 7712598697525900939}
+--- !u!114 &7712598697525900939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

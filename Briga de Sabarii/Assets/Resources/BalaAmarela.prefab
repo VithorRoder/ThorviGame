@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 457022005117240495}
   m_Layer: 0
   m_Name: BalaAmarela
-  m_TagString: Bala
+  m_TagString: BalaAmarela
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,9 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c02dc6f381e8f4eb67c5fc909fccc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 1500
   damage: 5
-  pv: {fileID: 5535931782159561760}
+  photonbala: {fileID: 5535931782159561760}
 --- !u!50 &8897884414739332118
 Rigidbody2D:
   serializedVersion: 4

@@ -7,6 +7,19 @@ TagManager:
   - Ground
   - playerCamera
   - Bala
+  - Bullet
+  - PlayerAzul
+  - PlayerVermelho
+  - PlayerRosa
+  - PlayerVerde
+  - PlayerAmarelo
+  - PlayerBranco
+  - BalaAzul
+  - BalaVermelha
+  - BalaRosa
+  - BalaVerde
+  - BalaAmarela
+  - BalaBranca
   layers:
   - Default
   - TransparentFX
