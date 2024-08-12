@@ -64,6 +64,12 @@ public class BalaScript : MonoBehaviourPun
         string bulletTag = gameObject.tag;
         string playerTag = other.gameObject.tag;
 
+        if (other.CompareTag("BalaAzul") || other.CompareTag("BalaVermelha") || other.CompareTag("BalaRosa") || other.CompareTag("BalaVerde") || other.CompareTag("BalaAmarela") || other.CompareTag("BalaBranca"))
+        {
+            HandleCollision();
+            return;
+        }
+
         switch (bulletTag)
         {
             case "BalaAzul":
@@ -124,6 +130,7 @@ public class BalaScript : MonoBehaviourPun
         return allowedTags.Contains(playerTag);
     }
 
+    [PunRPC]
     void HandleCollision()
     {
         if (!collided)
